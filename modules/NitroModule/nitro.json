@@ -1,0 +1,17 @@
+{
+  "cxxNamespace": ["nitromodule"],
+  "ios": {
+    "iosModuleName": "NitroModule"
+  },
+  "android": {
+    "androidNamespace": ["nitromodule"],
+    "androidCxxLibName": "nitromodule"
+  },
+  "autolinking": {
+    "NitroModule": {
+      "swift": "NitroModule",
+      "kotlin": "NitroModule"
+    }
+  },
+  "ignorePaths": ["node_modules"]
+}
