@@ -5946,10 +5946,6 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-native-custommodule@file:react-native-custommodule-0.1.0.tgz":
-  version "0.1.0"
-  resolved "file:react-native-custommodule-0.1.0.tgz#1450d95adca6d221a3f1553c44f56bde9b6318b5"
-
 react-native-gesture-handler@~2.20.2:
   version "2.20.2"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.20.2.tgz#73844c8e9c417459c2f2981bc4d8f66ba8a5ee66"
@@ -6004,9 +6000,9 @@ react-native-screens@~4.4.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-"react-native-streamlayer@file:./react-native-streamlayer-0.2.35.tgz":
-  version "0.2.35"
-  resolved "file:./react-native-streamlayer-0.2.35.tgz#22486af0a391768dcfd4d8ddee56646aaa7f6dcb"
+"react-native-streamlayer@file:./react-native-streamlayer-0.2.44.tgz":
+  version "0.2.44"
+  resolved "file:./react-native-streamlayer-0.2.44.tgz#06fe7053e58628de287ce4a6d60e0d49d50c8595"
 
 react-native-web@~0.19.13:
   version "0.19.13"

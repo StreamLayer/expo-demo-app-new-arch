@@ -71,7 +71,7 @@ import {
   StreamLayerViewNotificationFeature,
   StreamLayerViewOverlayLandscapeMode,
   StreamLayerViewConfiguration,
-  RCTStreamLayerFabricView,
+  RCTStreamLayerModuleView,
   StreamLayerView,
 
 
@@ -79,7 +79,7 @@ import {
 
 import RCTStreamLayerModule from "react-native-streamlayer/src"
 
-import { SquareViewView } from "nativesquare";
+// import { SquareViewView } from "nativesquare";
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 
@@ -345,7 +345,8 @@ useEffect(() => {
               });
               checkAuth()
               loadDemoEvents()
-              const inited = isInitialized()
+              const inited = await isInitialized()
+              console.log("isInitied"+inited)
               setInitializedState(inited)
 
       } catch (e) {
@@ -520,6 +521,7 @@ useEffect(() => {
       {(isPortrait) && <PortraitView />}
         {isInitializedState
           ?  
+          // <RCTStreamLayerModuleView style={{height: 200, width: 300, backgroundColor: 'red'}} />
           <StreamLayerView 
           style={isScreenPortrait() ? {...styles.portrait, height: Dimensions.get('screen').height - insets.top-tabBarHeight, width: Dimensions.get('screen').width } : styles.landscape}
           ref={viewRef}

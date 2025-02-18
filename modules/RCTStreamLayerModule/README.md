@@ -1,6 +1,6 @@
 # react-native-streamlayer
 
-streamlayer sdk
+sdk for react native
 
 ## Installation
 
@@ -12,11 +12,11 @@ npm install react-native-streamlayer
 
 
 ```js
-import { multiply } from 'react-native-streamlayer';
+import { RCTStreamLayerModuleView } from "react-native-streamlayer";
 
 // ...
 
-const result = multiply(3, 7);
+<RCTStreamLayerModuleView color="tomato" />
 ```
 
 

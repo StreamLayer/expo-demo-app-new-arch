@@ -1,12 +1,10 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-streamlayer';
-
-const result = multiply(3, 7);
+import { View, StyleSheet } from 'react-native';
+import { RCTStreamLayerModuleView } from 'react-native-streamlayer';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <RCTStreamLayerModuleView color="#32a852" style={styles.box} />
     </View>
   );
 }
@@ -16,5 +14,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  box: {
+    width: 60,
+    height: 60,
+    marginVertical: 20,
   },
 });
