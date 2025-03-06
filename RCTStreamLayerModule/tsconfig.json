@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "paths": {
+      "react-native-streamlayer": ["./src/index"]
+    },
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-native",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": false,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUncheckedIndexedAccess": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "resolveJsonModule": true,
+    "resolvePackageJsonImports": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext",
+    "verbatimModuleSyntax": false
+  },
+  "exclude": [
+    "node_modules",
+    "src/internal/StreamLayerView.tsx"
+  ]
+}

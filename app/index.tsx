@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useEffect, useState , useRef, useCallback} from 'react';
+import React, { useEffect, useState , useRef, useCallback, forwardRef} from 'react';
 // import type {PropsWithChildren} from 'react';
 import {
   ScrollView,
@@ -123,7 +123,10 @@ export default function HomeScreen() {
   const [currentEventId, setCurrentEventId] = useState<String>()
   const [isInitializedState, setInitializedState] = useState(false);
   const viewRef = useRef(null);
+  const [forwardedViewId, setForwardedViewId] = useState(0)
+  
 //   const listenerSubscription = React.useRef<null | EventSubscription>(null);
+
 
   const invitedata = {
     "+click_timestamp": 1725866009, 
@@ -289,6 +292,10 @@ useEffect(() => {
       const subscription = Dimensions.addEventListener('change', ({ window, screen }) => {
           setPortrait(window.height > window.width)
       });
+
+      const viewId = viewRef.current.__nativeTag;
+      console.log('View ID:', viewId)
+      setForwardedViewId(viewId)
 
   
       return () => subscription?.remove()
@@ -515,16 +522,19 @@ useEffect(() => {
   
   // const insets = useSafeAreaInsets()
 
+  console.log("MAIN MAIN MAIN VIEW REF")
+  console.log(viewRef)
+
   return (
-    <SafeAreaView style={styles.container}  edges={['top']}>
+    <SafeAreaView style={styles.container}  edges={['top']} ref={viewRef}>
       <View style={{...styles.container, backgroundColor: 'lightgrey'}}>
       {(isPortrait) && <PortraitView />}
-        {isInitializedState
+        {isInitializedState && (forwardedViewId !== 0)
           ?  
           // <RCTStreamLayerModuleView style={{height: 200, width: 300, backgroundColor: 'red'}} />
           <StreamLayerView 
           style={isScreenPortrait() ? {...styles.portrait, height: Dimensions.get('screen').height - insets.top-tabBarHeight, width: Dimensions.get('screen').width } : styles.landscape}
-          ref={viewRef}
+          forwardedRef={forwardedViewId}
           config={viewConfig}
           applyWindowInsets={false}
           onRequestStream={onRequestStream}
