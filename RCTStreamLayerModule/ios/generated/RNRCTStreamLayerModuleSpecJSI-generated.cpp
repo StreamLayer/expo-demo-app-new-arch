@@ -59,7 +59,8 @@ static jsi::Value __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_isInitiali
 static jsi::Value __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_getDemoEvents(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
   return static_cast<NativeRCTStreamLayerModuleCxxSpecJSI *>(&turboModule)->getDemoEvents(
     rt,
-    count <= 0 ? throw jsi::JSError(rt, "Expected argument in position 0 to be passed") : args[0].asString(rt)
+    count <= 0 ? throw jsi::JSError(rt, "Expected argument in position 0 to be passed") : args[0].asString(rt),
+    count <= 1 ? throw jsi::JSError(rt, "Expected argument in position 1 to be passed") : args[1].asNumber()
   );
 }
 static jsi::Value __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_getInvite(jsi::Runtime &rt, TurboModule &turboModule, const jsi::Value* args, size_t count) {
@@ -91,7 +92,7 @@ NativeRCTStreamLayerModuleCxxSpecJSI::NativeRCTStreamLayerModuleCxxSpecJSI(std::
   methodMap_["useAnonymousAuth"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_useAnonymousAuth};
   methodMap_["isUserAuthorized"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_isUserAuthorized};
   methodMap_["isInitialized"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_isInitialized};
-  methodMap_["getDemoEvents"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_getDemoEvents};
+  methodMap_["getDemoEvents"] = MethodMetadata {2, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_getDemoEvents};
   methodMap_["getInvite"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_getInvite};
   methodMap_["handleDeepLink"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_handleDeepLink};
   methodMap_["removeOverlay"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleCxxSpecJSI_removeOverlay};

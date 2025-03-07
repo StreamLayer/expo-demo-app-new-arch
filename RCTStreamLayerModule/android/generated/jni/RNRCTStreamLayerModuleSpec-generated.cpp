@@ -54,7 +54,7 @@ static facebook::jsi::Value __hostFunction_NativeRCTStreamLayerModuleSpecJSI_isI
 
 static facebook::jsi::Value __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
   static jmethodID cachedMethodId = nullptr;
-  return static_cast<JavaTurboModule &>(turboModule).invokeJavaMethod(rt, PromiseKind, "getDemoEvents", "(Ljava/lang/String;Lcom/facebook/react/bridge/Promise;)V", args, count, cachedMethodId);
+  return static_cast<JavaTurboModule &>(turboModule).invokeJavaMethod(rt, PromiseKind, "getDemoEvents", "(Ljava/lang/String;DLcom/facebook/react/bridge/Promise;)V", args, count, cachedMethodId);
 }
 
 static facebook::jsi::Value __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getInvite(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
@@ -82,7 +82,7 @@ NativeRCTStreamLayerModuleSpecJSI::NativeRCTStreamLayerModuleSpecJSI(const JavaT
   methodMap_["useAnonymousAuth"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_useAnonymousAuth};
   methodMap_["isUserAuthorized"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_isUserAuthorized};
   methodMap_["isInitialized"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_isInitialized};
-  methodMap_["getDemoEvents"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents};
+  methodMap_["getDemoEvents"] = MethodMetadata {2, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents};
   methodMap_["getInvite"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getInvite};
   methodMap_["handleDeepLink"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_handleDeepLink};
   methodMap_["removeOverlay"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_removeOverlay};

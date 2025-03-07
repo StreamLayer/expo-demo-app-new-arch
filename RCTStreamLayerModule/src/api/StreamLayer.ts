@@ -97,8 +97,8 @@ export class StreamLayer {
     return Platform.OS === 'ios' ? NativeStreamLayer.handleDeepLink(json) : NativeStreamLayer.getInvite(json);
   }
 
-  static getDemoEvents(date: string): Promise<Object> {
-    return NativeStreamLayer.getDemoEvents(date)
+  static getDemoEvents(date: string, viewId: number): Promise<Object> {
+    return NativeStreamLayer.getDemoEvents(date,viewId)
   }
 
   static initSdk(config: StreamLayerConfiguration): Promise<string> {

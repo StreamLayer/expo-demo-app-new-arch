@@ -6,7 +6,7 @@ import com.facebook.react.bridge.WritableMap
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.events.RCTEventEmitter
 
-internal class StreamLayerViewEventEmitter(
+public class StreamLayerViewEventEmitter(
   private val reactContext: ReactApplicationContext,
   private val getReactNativeViewId: (() -> Int?)
 ) {

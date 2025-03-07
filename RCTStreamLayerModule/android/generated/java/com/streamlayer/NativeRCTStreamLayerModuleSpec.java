@@ -83,7 +83,7 @@ public abstract class NativeRCTStreamLayerModuleSpec extends ReactContextBaseJav
 
   @ReactMethod
   @DoNotStrip
-  public abstract void getDemoEvents(String date, Promise promise);
+  public abstract void getDemoEvents(String date, double viewId, Promise promise);
 
   @ReactMethod
   @DoNotStrip

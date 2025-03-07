@@ -40,7 +40,7 @@
     "react-native-reanimated": "~3.16.1",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
-    "react-native-streamlayer": "file:./react-native-streamlayer-0.2.44.tgz",
+    "react-native-streamlayer": "file:./react-native-streamlayer-0.2.45.tgz",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5"
   },

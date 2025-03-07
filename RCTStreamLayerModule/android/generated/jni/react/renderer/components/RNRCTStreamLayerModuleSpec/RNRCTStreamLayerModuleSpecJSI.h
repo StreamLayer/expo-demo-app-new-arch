@@ -28,7 +28,7 @@ public:
   virtual jsi::Value useAnonymousAuth(jsi::Runtime &rt) = 0;
   virtual bool isUserAuthorized(jsi::Runtime &rt) = 0;
   virtual jsi::Value isInitialized(jsi::Runtime &rt) = 0;
-  virtual jsi::Value getDemoEvents(jsi::Runtime &rt, jsi::String date) = 0;
+  virtual jsi::Value getDemoEvents(jsi::Runtime &rt, jsi::String date, double viewId) = 0;
   virtual jsi::Value getInvite(jsi::Runtime &rt, jsi::Object json) = 0;
   virtual jsi::Value handleDeepLink(jsi::Runtime &rt, jsi::Object params) = 0;
   virtual void removeOverlay(jsi::Runtime &rt) = 0;
@@ -156,13 +156,13 @@ private:
       return bridging::callFromJs<jsi::Value>(
           rt, &T::isInitialized, jsInvoker_, instance_);
     }
-    jsi::Value getDemoEvents(jsi::Runtime &rt, jsi::String date) override {
+    jsi::Value getDemoEvents(jsi::Runtime &rt, jsi::String date, double viewId) override {
       static_assert(
-          bridging::getParameterCount(&T::getDemoEvents) == 2,
-          "Expected getDemoEvents(...) to have 2 parameters");
+          bridging::getParameterCount(&T::getDemoEvents) == 3,
+          "Expected getDemoEvents(...) to have 3 parameters");
 
       return bridging::callFromJs<jsi::Value>(
-          rt, &T::getDemoEvents, jsInvoker_, instance_, std::move(date));
+          rt, &T::getDemoEvents, jsInvoker_, instance_, std::move(date), std::move(viewId));
     }
     jsi::Value getInvite(jsi::Runtime &rt, jsi::Object json) override {
       static_assert(

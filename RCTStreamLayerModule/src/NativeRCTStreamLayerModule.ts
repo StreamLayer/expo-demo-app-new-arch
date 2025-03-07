@@ -11,7 +11,7 @@ export interface Spec extends TurboModule {
   useAnonymousAuth(): Promise<void>;
   isUserAuthorized(): boolean;
   isInitialized(): Promise<boolean>;
-  getDemoEvents(date: string): Promise<Object>;
+  getDemoEvents(date: string, viewId: number): Promise<Object>;
   getInvite(json: Object): Promise<any>;
   handleDeepLink(params: Object): Promise<void>;
   removeOverlay(): void;

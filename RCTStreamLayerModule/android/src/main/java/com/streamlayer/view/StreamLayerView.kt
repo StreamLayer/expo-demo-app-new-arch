@@ -36,8 +36,8 @@ public class StreamLayerView(
   private var reactNativeViewId: Int? = null
   private var applyWindowInsets = true
   private var viewConfiguration: StreamLayerViewConfiguration? = null
-  private var eventEmitter: StreamLayerViewEventEmitter? = null
-  private var commandReceiver: StreamLayerViewCommandReceiver? = null
+  var eventEmitter: StreamLayerViewEventEmitter? = null
+  var commandReceiver: StreamLayerViewCommandReceiver? = null
   private var jsTouchDispatcher: StreamLayerJSTouchDispatcher? = null
   private var pendingInvite: StreamLayerInvite? = null
 
@@ -105,12 +105,14 @@ public class StreamLayerView(
   }
 
   init {
+
     eventEmitter = StreamLayerViewEventEmitter(reactContext) { reactNativeViewId }
+
     commandReceiver = StreamLayerViewCommandReceiver(
       object : StreamLayerViewCommandReceiver.Listener {
 
         override fun onCreate(reactNativeViewId: Int) {
-          createFragment(reactNativeViewId)
+            createFragment(reactNativeViewId)
         }
 
         override fun onDestroy() {
@@ -133,6 +135,7 @@ public class StreamLayerView(
           handleInvite(invite)
         }
       })
+       Log.d("StreamLayerViewMAINVIEW", "StreamLayerViewCommandReceiver created")
   }
 
   override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -164,6 +167,7 @@ public class StreamLayerView(
   }
 
   private fun createFragment(reactNativeViewId: Int) {
+    Log.d("StreamLayerViewMAINVIEW", "StreamLayerCreateFragment STARTED")
     this.reactNativeViewId = reactNativeViewId
     val activity = reactContext.currentActivity as ReactActivity
     val parentView = findViewById<ViewGroup>(reactNativeViewId)

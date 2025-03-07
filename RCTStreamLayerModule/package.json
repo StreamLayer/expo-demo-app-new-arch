@@ -1,6 +1,6 @@
 {
   "name": "react-native-streamlayer",
-  "version": "0.2.44",
+  "version": "0.2.45",
   "description": "streamlayer sdk for react native",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",

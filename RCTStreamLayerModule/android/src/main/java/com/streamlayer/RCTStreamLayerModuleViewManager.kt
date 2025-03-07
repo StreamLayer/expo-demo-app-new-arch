@@ -18,6 +18,12 @@ class RCTStreamLayerModuleViewManager : SimpleViewManager<StreamLayerView>(),
 
     private val delegate: ViewManagerDelegate<StreamLayerView> = StreamLayerModuleViewManagerDelegate(this)
 
+    var _module: RCTStreamLayerModuleModule? = null
+
+    fun setStreamLayerModuleModule(module: RCTStreamLayerModuleModule?) {
+        _module = module
+    }
+
     override fun getDelegate(): ViewManagerDelegate<StreamLayerView> {
         return delegate
     }
@@ -27,7 +33,9 @@ class RCTStreamLayerModuleViewManager : SimpleViewManager<StreamLayerView>(),
     }
 
     public override fun createViewInstance(context: ThemedReactContext): StreamLayerView {
-        return StreamLayerView(context.reactApplicationContext, context)
+        val view = StreamLayerView(context.reactApplicationContext, context)
+        _module?.setEmitter(view.commandReceiver)
+        return view
     }
 
     override fun receiveCommand(view: StreamLayerView, commandId: String, args: ReadableArray?) {

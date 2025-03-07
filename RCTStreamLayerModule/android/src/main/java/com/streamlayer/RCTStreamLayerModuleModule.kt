@@ -31,8 +31,9 @@ import org.json.JSONObject
 class RCTStreamLayerModuleModule(reactContext: ReactApplicationContext) :
     NativeRCTStreamLayerModuleSpec(reactContext) {
 
-
-
+    init {
+        Log.d( NAME, "Module Has Been Created $this")
+    }
     // base coroutines scope
     private val scope = CoroutineScope(Dispatchers.Default)
 
@@ -48,6 +49,35 @@ class RCTStreamLayerModuleModule(reactContext: ReactApplicationContext) :
     private var demoStreamsJob: Job? = null
 
     override fun getName(): String = NAME
+
+    private var _emitter: StreamLayerViewCommandReceiver? = null
+
+    fun setEmitter(emitter: StreamLayerViewCommandReceiver? ) {
+        _emitter = emitter 
+    }   
+
+    override fun getDemoEvents(date: String,viewId: Number, promise: Promise) {
+        Log.e(NAME, "receiveCommand is not set! $viewId")
+        _emitter?.receiveCommand("777", viewId ) ?: Log.e(NAME, "receiveCommand is not set! $viewId")
+
+        // Log.d(NAME, "getDemoEvents requested for date=$date")
+        demoStreamsJob?.cancel()
+        demoStreamsJob = scope.launch {
+        runCatching {
+            val array = Arguments.createArray()
+            StreamLayerDemo.getDemoStreams(date).forEach {
+            array.pushMap(it.toDomain().toMap())
+            }
+            array
+        }.onSuccess {
+            Log.d(NAME, "getDemoEvents onSuccess $it")
+            promise.resolve(it)
+        }.onFailure {
+            Log.e(NAME, "getDemoEvents onFailure", it)
+            promise.reject(it)
+        }
+        }
+    }
 
 
     override fun initSdk(configParams: ReadableMap, promise: Promise) {
@@ -149,26 +179,6 @@ class RCTStreamLayerModuleModule(reactContext: ReactApplicationContext) :
         }
     }
 
-
-    override fun getDemoEvents(date: String, promise: Promise) {
-        Log.d(NAME, "getDemoEvents requested for date=$date")
-        demoStreamsJob?.cancel()
-        demoStreamsJob = scope.launch {
-        runCatching {
-            val array = Arguments.createArray()
-            StreamLayerDemo.getDemoStreams(date).forEach {
-            array.pushMap(it.toDomain().toMap())
-            }
-            array
-        }.onSuccess {
-            Log.d(NAME, "getDemoEvents onSuccess $it")
-            promise.resolve(it)
-        }.onFailure {
-            Log.e(NAME, "getDemoEvents onFailure", it)
-            promise.reject(it)
-        }
-        }
-    }
 
     override fun getInvite(json: ReadableMap, promise: Promise) {
         promise.resolve(mapOf("invite" to "Invite Data"))

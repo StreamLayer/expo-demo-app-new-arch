@@ -36,8 +36,8 @@ export function isInitialized(): Promise<boolean> {
   return RCTStreamLayerModule.isInitialized();
 }
 
-export function getDemoEvents(date: string): Promise<Object> {
-  return RCTStreamLayerModule.getDemoEvents(date);
+export function getDemoEvents(date: string,viewId: number): Promise<Object> {
+  return RCTStreamLayerModule.getDemoEvents(date,viewId);
 }
 
 export function getInvite(json: Object): Promise<any> {

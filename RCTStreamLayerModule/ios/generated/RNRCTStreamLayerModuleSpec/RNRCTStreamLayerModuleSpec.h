@@ -54,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)isInitialized:(RCTPromiseResolveBlock)resolve
                reject:(RCTPromiseRejectBlock)reject;
 - (void)getDemoEvents:(NSString *)date
+               viewId:(double)viewId
               resolve:(RCTPromiseResolveBlock)resolve
                reject:(RCTPromiseRejectBlock)reject;
 - (void)getInvite:(NSDictionary *)json

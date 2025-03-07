@@ -74,7 +74,7 @@ namespace facebook::react {
     }
 
     static facebook::jsi::Value __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
-      return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, PromiseKind, "getDemoEvents", @selector(getDemoEvents:resolve:reject:), args, count);
+      return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, PromiseKind, "getDemoEvents", @selector(getDemoEvents:viewId:resolve:reject:), args, count);
     }
 
     static facebook::jsi::Value __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getInvite(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
@@ -116,7 +116,7 @@ namespace facebook::react {
         methodMap_["isInitialized"] = MethodMetadata {0, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_isInitialized};
         
         
-        methodMap_["getDemoEvents"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents};
+        methodMap_["getDemoEvents"] = MethodMetadata {2, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getDemoEvents};
         
         
         methodMap_["getInvite"] = MethodMetadata {1, __hostFunction_NativeRCTStreamLayerModuleSpecJSI_getInvite};
